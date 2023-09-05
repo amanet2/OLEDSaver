@@ -13,36 +13,23 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class oledSaver {
-    static int[] dims = new int[]{3840, 2160};
-
+    static int width = 3840, height = 2160;
     private static class listener implements KeyListener, MouseListener {
         public void keyPressed(KeyEvent e) {
             System.exit(0);
         }
         
-        public void keyReleased(KeyEvent e) {
+        public void keyReleased(KeyEvent e) {}
     
-        }
+        public void keyTyped(KeyEvent e) {}
+
+        public void mousePressed(MouseEvent e) {}
     
-        public void keyTyped(KeyEvent e) {
-
-        }
-
-        public void mousePressed(MouseEvent e) {
-
-        }
+        public void mouseReleased(MouseEvent e) {}
     
-        public void mouseReleased(MouseEvent e) {
-
-        }
+        public void mouseEntered(MouseEvent e) {}
     
-        public void mouseEntered(MouseEvent e) {
-
-        }
-    
-        public void mouseExited(MouseEvent e) {
-
-        }
+        public void mouseExited(MouseEvent e) {}
     
         public void mouseClicked(MouseEvent e) {
             System.exit(0);
@@ -55,13 +42,11 @@ public class oledSaver {
         frame2.addKeyListener(inputs);
         frame2.addMouseListener(inputs);
         frame2.setUndecorated(true);
-        frame2.setBackground(Color.BLACK);
-        frame2.setPreferredSize(new Dimension(dims[0], dims[1]));
+        frame2.getContentPane().setBackground(Color.BLACK);
+        frame2.setPreferredSize(new Dimension(width, height));
         frame2.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
-            new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "blank cursor"));
-        JLayeredPane contentPane = new JLayeredPane();
-        contentPane.setPreferredSize(new Dimension(dims[0], dims[1]));
-        frame2.setContentPane(contentPane);
+            new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "blank cursor"
+        ));
         frame2.setResizable(false);
 		frame2.pack();
         frame2.setVisible(true);
